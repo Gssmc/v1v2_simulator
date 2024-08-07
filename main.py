@@ -144,31 +144,45 @@ def save_user_response(domain, sub_domain, question, user_answer, actual_answer,
 
 
 
-from sentence_transformers import SentenceTransformer, util
 
-# Initialize the SentenceTransformer model
+
+import torch
+from transformers import BertModel, BertTokenizer
+from torch.nn.functional import cosine_similarity
+
+# Function to initialize the BERT model and tokenizer
 @st.cache_resource
-def load_model():
+def load_bert_model():
     try:
-        model = SentenceTransformer('all-MiniLM-L6-v2')
-        if not hasattr(model, 'encode'):
-            raise AttributeError("Loaded model does not have an 'encode' method")
-        return model
+        tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        model = BertModel.from_pretrained('bert-base-uncased')
+        return tokenizer, model
     except Exception as e:
         st.error(f"Model loading failed: {e}")
         raise
 
-# Load the model
-model = load_model()
+# Load the BERT model and tokenizer
+tokenizer, bert_model = load_bert_model()
 
-# Define the function to calculate similarity score
+# Function to encode text using BERT
+def encode_text(text, tokenizer, model):
+    inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True, max_length=512)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return outputs.last_hidden_state.mean(dim=1)
+
+# Function to calculate cosine similarity
+def calculate_cosine_similarity(embedding1, embedding2):
+    return cosine_similarity(embedding1, embedding2).item()
+
+# Function to calculate similarity score
 def calculate_similarity_score(user_response, agent_response):
     try:
-        user_embedding = model.encode(user_response, convert_to_tensor=True)
-        agent_embedding = model.encode(agent_response, convert_to_tensor=True)
-        similarity = util.pytorch_cos_sim(user_embedding, agent_embedding).item()
+        user_embedding = encode_text(user_response, tokenizer, bert_model)
+        agent_embedding = encode_text(agent_response, tokenizer, bert_model)
+        similarity = calculate_cosine_similarity(user_embedding, agent_embedding)
         return similarity
-    except AttributeError as e:
+    except Exception as e:
         st.error(f"Error in calculate_similarity_score: {e}")
         raise
 
