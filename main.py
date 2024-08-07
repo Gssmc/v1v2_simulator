@@ -7,7 +7,7 @@ import time
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 import plotly.express as px
-import spacy
+
 import nltk
 from textblob import TextBlob
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -142,12 +142,22 @@ def save_user_response(domain, sub_domain, question, user_answer, actual_answer,
 
  
 
-nlp = spacy.load("en_core_web_md")
+
+
+from sentence_transformers import SentenceTransformer, util
+
+# Initialize the Sentence Transformer model
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def calculate_similarity(user_answer, actual_answer):
-    user_doc = nlp(user_answer)
-    actual_doc = nlp(actual_answer)
-    return user_doc.similarity(actual_doc)
+    # Compute embeddings using Sentence Transformers
+    embeddings = model.encode([user_answer, actual_answer], convert_to_tensor=True)
+    
+    # Calculate cosine similarity
+    cosine_similarities = util.pytorch_cos_sim(embeddings[0], embeddings[1])
+    
+    # Return similarity score
+    return cosine_similarities.item()
 
 def calculate_relevancy(user_answer, actual_answer):
     vectorizer = TfidfVectorizer().fit_transform([user_answer, actual_answer])
