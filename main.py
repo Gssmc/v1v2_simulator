@@ -121,7 +121,7 @@ nltk.download('wordnet')
 # Load questions
 def load_questions():
     try:
-        return pd.read_csv('C:\\Users\\GokulSivakumar\\OneDrive - revature.com\\Desktop\\AAM_Customer_Simulator\\Data\\Care_questions_no_repeats.csv')
+        return pd.read_csv('Care_questions_no_repeats.csv')
     except FileNotFoundError:
         st.error("Questions dataset not found!")
         return pd.DataFrame(columns=['caller_id', 'question', 'parentintent', 'childintent', 'answer'])
