@@ -149,15 +149,10 @@ from sentence_transformers import SentenceTransformer, util
 # Initialize the Sentence Transformer model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-def calculate_similarity(user_answer, actual_answer):
-    # Compute embeddings using Sentence Transformers
-    embeddings = model.encode([user_answer, actual_answer], convert_to_tensor=True)
-    
-    # Calculate cosine similarity
-    cosine_similarities = util.pytorch_cos_sim(embeddings[0], embeddings[1])
-    
-    # Return similarity score
-    return cosine_similarities.item()
+def calculate_similarity_score(user_response, agent_response):
+    user_embedding = model.encode(user_response, convert_to_tensor=True)
+    agent_embedding = model.encode(agent_response, convert_to_tensor=True)
+    return util.pytorch_cos_sim(user_embedding, agent_embedding).item()
 
 def calculate_relevancy(user_answer, actual_answer):
     vectorizer = TfidfVectorizer().fit_transform([user_answer, actual_answer])
