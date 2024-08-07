@@ -1,0 +1,27 @@
+domain,sub_domain,question,user_answer,actual_answer,caller_id,response_time
+Service Management,Update Profile,How much do I owe?,$4.27,The total current due amount is $147.69.,9139519,30.885457754135132
+Service Management,Update Profile,Do you offer home phone service?,yes,"Yes, we offer home phone service.",9139519,38.79584455490112
+Service Management,Update Profile,Can you update my email address?,yes,"Yes, I can update your email address.",9139519,10.451078653335571
+Service Management,Update Profile,Can I pay my bill tonight?,yes,"Yes, you can pay your bill tonight.",9139519,9.446016311645508
+Service Management,Update Profile,Is there a convenience fee for using a card?,yes,"Yes, there is a $3.50 convenience fee for using a card.",9139519,8.340085744857788
+Service Management,Update Profile,Can you remove the late charges?,yes,"Yes, I can remove the late charges for you.",9139519,45.57197833061218
+Service Management,Update Profile,How much do I owe?,$4.14,The total current due amount is $147.69.,9139519,16.7941472530365
+Service Management,Update Profile,Do you offer home phone service?,yes,"Yes, we offer home phone service.",9139519,9.464207410812378
+Service Management,Update Profile,Can you update my email address?,yes,"Yes, I can update your email address.",9139519,8.297061204910278
+Service Management,Update Profile,Can I pay my bill tonight?,yes,"Yes, you can pay your bill tonight.",9139519,8.064244985580444
+Service Management,Update Profile,Is there a convenience fee for using a card?,yes,"Yes, there is a $3.50 convenience fee for using a card.",9139519,8.04315733909607
+Service Management,Update Profile,Can you remove the late charges?,yes,"Yes, I can remove the late charges for you.",9139519,7.736345052719116
+Billing,Request Bill Copy,Can I have my bill sent to me instead of online?,yes,"Yes, we can have your bill sent to you instead of online.",9111663,17.630991458892822
+Billing,Request Bill Copy,Did I make changes to my account online?,yes,"No, there were no changes made to your account.",9111663,9.197719812393188
+Service Management,Update Profile,How much do I owe?,$4.14,The total current due amount is $147.69.,9139519,13.914668798446655
+Service Management,Update Profile,Do you offer home phone service?,yes,"Yes, we offer home phone service.",9139519,8.622876405715942
+Service Management,Update Profile,Can you update my email address?,yes,"Yes, I can update your email address.",9139519,8.37594747543335
+Service Management,Update Profile,Can I pay my bill tonight?,yes,"Yes, you can pay your bill tonight.",9139519,8.51060700416565
+Service Management,Update Profile,Is there a convenience fee for using a card?,yes,"Yes, there is a $3.50 convenience fee for using a card.",9139519,8.488095998764038
+Service Management,Update Profile,Can you remove the late charges?,yes,"Yes, I can remove the late charges for you.",9139519,9.700249910354614
+Service Management,Update Profile,How much do I owe?,s,The total current due amount is $147.69.,9139519,5.151852607727051
+Service Management,Update Profile,Do you offer home phone service?,,"Yes, we offer home phone service.",9139519,0.0010004043579101562
+Service Management,Update Profile,Can you update my email address?,,"Yes, I can update your email address.",9139519,8.695137023925781
+Service Management,Update Profile,Can I pay my bill tonight?,,"Yes, you can pay your bill tonight.",9139519,0.005001544952392578
+Service Management,Update Profile,Is there a convenience fee for using a card?,,"Yes, there is a $3.50 convenience fee for using a card.",9139519,3.637362003326416
+Service Management,Update Profile,Can you remove the late charges?,,"Yes, I can remove the late charges for you.",9139519,3.788193464279175

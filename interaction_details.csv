@@ -1,0 +1,13 @@
+question,user_answer,actual_answer,response_time,similarity_score,relevancy,positivity,communication,problem_solving,overall_score
+How much do I owe?,$4.14,The total current due amount is $147.69.,13.914668798446655,0.5940669178652457,0.0,2.5,5.0,2.5524213910102844,2.513105347752571
+Do you offer home phone service?,yes,"Yes, we offer home phone service.",8.622876405715942,0.3055780106880752,1.5160803222519315,2.5,5.0,2.7113625407218933,2.931860715743456
+Can you update my email address?,yes,"Yes, I can update your email address.",8.37594747543335,0.3980151853132149,1.5160803222519315,2.5,5.0,2.7113625407218933,2.931860715743456
+Can I pay my bill tonight?,yes,"Yes, you can pay your bill tonight.",8.51060700416565,0.34407960224345024,1.394712726629126,2.5,5.0,2.7113625407218933,2.901518816837755
+Is there a convenience fee for using a card?,yes,"Yes, there is a $3.50 convenience fee for using a card.",8.488095998764038,0.09274060500296386,1.219778625000317,2.5,5.0,2.7113625407218933,2.8577852914305524
+Can you remove the late charges?,yes,"Yes, I can remove the late charges for you.",9.700249910354614,0.3049839725274337,1.2984899662008127,2.5,5.0,2.7113625407218933,2.8774631267306763
+How much do I owe?,s,The total current due amount is $147.69.,5.151852607727051,0.170080502358705,0.0,2.5,5.0,3.3333703875541687,2.708342596888542
+Do you offer home phone service?,,"Yes, we offer home phone service.",0.0010004043579101562,0.0,0.0,2.5,5.0,3.103034794330597,2.6507586985826492
+Can you update my email address?,,"Yes, I can update your email address.",8.695137023925781,0.0,0.0,2.5,5.0,3.103034794330597,2.6507586985826492
+Can I pay my bill tonight?,,"Yes, you can pay your bill tonight.",0.005001544952392578,0.0,0.0,2.5,5.0,3.103034794330597,2.6507586985826492
+Is there a convenience fee for using a card?,,"Yes, there is a $3.50 convenience fee for using a card.",3.637362003326416,0.0,0.0,2.5,5.0,3.103034794330597,2.6507586985826492
+Can you remove the late charges?,,"Yes, I can remove the late charges for you.",3.788193464279175,0.0,0.0,2.5,5.0,3.103034794330597,2.6507586985826492
