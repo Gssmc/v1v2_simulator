@@ -186,11 +186,6 @@ def calculate_similarity_score(user_response, agent_response):
         st.error(f"Error in calculate_similarity_score: {e}")
         raise
 
-def calculate_relevancy(user_answer, actual_answer):
-    vectorizer = TfidfVectorizer().fit_transform([user_answer, actual_answer])
-    vectors = vectorizer.toarray()
-    cosine_sim = cosine_similarity(vectors)
-    return cosine_sim[0][1] * 5  # Scale to 5
 
 def calculate_positivity(user_answer):
     blob = TextBlob(user_answer)
