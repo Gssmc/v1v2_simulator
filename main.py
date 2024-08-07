@@ -146,13 +146,15 @@ def save_user_response(domain, sub_domain, question, user_answer, actual_answer,
 
 from sentence_transformers import SentenceTransformer, util
 
-# Initialize the Sentence Transformer model
+# Initialize the SentenceTransformer model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
+# Define the function to calculate similarity score
 def calculate_similarity_score(user_response, agent_response):
     user_embedding = model.encode(user_response, convert_to_tensor=True)
     agent_embedding = model.encode(agent_response, convert_to_tensor=True)
-    return util.pytorch_cos_sim(user_embedding, agent_embedding).item()
+    similarity = util.pytorch_cos_sim(user_embedding, agent_embedding).item()
+    return similarity
 
 def calculate_relevancy(user_answer, actual_answer):
     vectorizer = TfidfVectorizer().fit_transform([user_answer, actual_answer])
