@@ -251,7 +251,7 @@ def calculate_problem_solving(user_answer):
 def analyze_performance(responses_df):
     responses_df['response_time'] = responses_df['response_time'].astype(float)
 
-    responses_df['relevancy'] = responses_df.apply(lambda row: calculate_relevancy(row['user_answer'], row['actual_answer']), axis=1)
+   
     responses_df['positivity'] = responses_df['user_answer'].apply(calculate_positivity)
     responses_df['communication'] = responses_df['user_answer'].apply(calculate_communication)
     responses_df['problem_solving'] = responses_df['user_answer'].apply(calculate_problem_solving)
