@@ -191,41 +191,6 @@ def calculate_positivity(user_answer):
     blob = TextBlob(user_answer)
     return (blob.sentiment.polarity + 1) * 2.5  # Scale to 5
 
-def calculate_communication(user_answer):
-    # Readability score
-    readability_score = flesch_reading_ease(user_answer)
-    
-    # Grammatical correctness
-    doc = nlp(user_answer)
-    grammatical_errors = sum([1 for token in doc if token.dep_ == 'amod' and token.head.dep_ == 'nsubj'])
-    
-    # Clarity (using readability score)
-    if readability_score >= 60:
-        clarity_score = 5
-    elif readability_score >= 50:
-        clarity_score = 4
-    elif readability_score >= 40:
-        clarity_score = 3
-    elif readability_score >= 30:
-        clarity_score = 2
-    else:
-        clarity_score = 1
-
-    # Grammatical correctness score
-    if grammatical_errors == 0:
-        grammar_score = 5
-    elif grammatical_errors <= 2:
-        grammar_score = 4
-    elif grammatical_errors <= 4:
-        grammar_score = 3
-    elif grammatical_errors <= 6:
-        grammar_score = 2
-    else:
-        grammar_score = 1
-
-    # Average the clarity and grammar scores
-    communication_score = (clarity_score + grammar_score) / 2
-    return communication_score
 
 
 model_name = "bert-base-uncased"
