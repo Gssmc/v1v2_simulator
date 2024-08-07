@@ -218,7 +218,7 @@ def analyze_performance(responses_df):
 
    
     responses_df['positivity'] = responses_df['user_answer'].apply(calculate_positivity)
-    responses_df['communication'] = responses_df['user_answer'].apply(calculate_communication)
+  
     responses_df['problem_solving'] = responses_df['user_answer'].apply(calculate_problem_solving)
 
     responses_df['overall_score'] = responses_df[['relevancy', 'positivity', 'communication', 'problem_solving']].mean(axis=1)
