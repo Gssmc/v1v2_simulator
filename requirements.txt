@@ -9,3 +9,4 @@ textblob
 scikit-learn
 textstat
 transformers
+sentence-transformers
