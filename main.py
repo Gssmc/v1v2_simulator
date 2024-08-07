@@ -320,7 +320,7 @@ def display_v1():
             st.session_state.pop('current_question_index_v1', None)
             st.session_state.pop('responses_v1', None)
             st.session_state.pop('chat_v1', None)
-            st.experimental_rerun()
+            st.rerun()
 
     if st.session_state.get('current_caller_id_v1') is None:
         st.write("Please select a domain and scenario, then click 'Start Interaction'.")
@@ -335,7 +335,7 @@ def display_v1():
                 st.session_state['chat_v1'] = []
                 st.session_state['question_start_time_v1'] = None
                 st.session_state['user_answer_v1'] = ''
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.write("No questions available for this domain and scenario.")
                 st.session_state.pop('current_caller_id_v1', None)
@@ -379,7 +379,7 @@ def display_v1():
                     })
                     st.session_state['chat_v1'].append({"content": user_answer, "role": "user"})
                     st.session_state['current_question_index_v1'] += 1
-                    st.experimental_rerun()
+                    st.rerun()
 
             with col2:
                 if st.button("Stop Interaction"):
@@ -388,7 +388,7 @@ def display_v1():
                     st.session_state.pop('responses_v1', None)
                     st.session_state.pop('chat_v1', None)
                     st.session_state.pop(user_answer_key, None)
-                    st.experimental_rerun()
+                    st.rerun()
 
             with col3:
                 if st.button("Restart Interaction"):
@@ -400,7 +400,7 @@ def display_v1():
                         st.session_state['responses_v1'] = []
                         st.session_state['chat_v1'] = []
                         st.session_state['question_start_time_v1'] = None
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.write("No questions available for this domain and scenario.")
                         st.session_state.pop('current_caller_id_v1', None)
@@ -418,7 +418,7 @@ def display_v1():
                         st.session_state['current_question_index_v1'] = 0
                         st.session_state['responses_v1'] = []
                         st.session_state['chat_v1'] = []
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.write("No questions available for this domain and scenario.")
                         st.session_state.pop('current_caller_id_v1', None)
@@ -460,7 +460,7 @@ def display_v2():
             st.session_state.pop('current_question_index_v2', None)
             st.session_state.pop('responses_v2', None)
             st.session_state.pop('chat_v2', None)
-            st.experimental_rerun()
+            st.rerun()
 
     if st.session_state.get('current_caller_id_v2') is None:
         st.write("Please select a domain and scenario, then click 'Start Interaction'.")
@@ -474,7 +474,7 @@ def display_v2():
                 st.session_state['responses_v2'] = []
                 st.session_state['chat_v2'] = []
                 st.session_state['question_start_time_v2'] = None
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.write("No questions available for this domain and scenario.")
                 st.session_state.pop('current_caller_id_v2', None)
@@ -521,7 +521,7 @@ def display_v2():
                     })
                     st.session_state['chat_v2'].append({"content": user_answer, "role": "user"})
                     st.session_state['current_question_index_v2'] += 1
-                    st.experimental_rerun()
+                    st.rerun()
 
             with col2:
                 if st.button("Stop Interaction"):
@@ -530,7 +530,7 @@ def display_v2():
                     st.session_state.pop('responses_v2', None)
                     st.session_state.pop('chat_v2', None)
                     st.session_state.pop(user_answer_key, None)
-                    st.experimental_rerun()
+                    st.rerun()
 
             with col3:
                 if st.button("Restart Interaction"):
@@ -542,7 +542,7 @@ def display_v2():
                         st.session_state['responses_v2'] = []
                         st.session_state['chat_v2'] = []
                         st.session_state['question_start_time_v2'] = None
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.write("No questions available for this domain and scenario.")
                         st.session_state.pop('current_caller_id_v2', None)
@@ -560,7 +560,7 @@ def display_v2():
                         st.session_state['current_question_index_v2'] = 0
                         st.session_state['responses_v2'] = []
                         st.session_state['chat_v2'] = []
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.write("No questions available for this domain and scenario.")
                         st.session_state.pop('current_caller_id_v2', None)
