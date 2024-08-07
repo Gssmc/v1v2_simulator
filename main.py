@@ -495,7 +495,7 @@ def display_v2():
                     response_time = time.time() - st.session_state['question_start_time_v2']
                     st.session_state['question_start_time_v2'] = None
 
-                    similarity_score = calculate_similarity(user_answer, current_question['answer'])
+                    similarity_score = calculate_similarity_score(user_answer, current_question['answer'])
 
                     save_user_response(
                         domain=current_question['parentintent'],
