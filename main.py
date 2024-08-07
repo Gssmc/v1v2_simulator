@@ -147,14 +147,30 @@ def save_user_response(domain, sub_domain, question, user_answer, actual_answer,
 from sentence_transformers import SentenceTransformer, util
 
 # Initialize the SentenceTransformer model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+@st.cache_resource
+def load_model():
+    try:
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+        if not hasattr(model, 'encode'):
+            raise AttributeError("Loaded model does not have an 'encode' method")
+        return model
+    except Exception as e:
+        st.error(f"Model loading failed: {e}")
+        raise
+
+# Load the model
+model = load_model()
 
 # Define the function to calculate similarity score
 def calculate_similarity_score(user_response, agent_response):
-    user_embedding = model.encode(user_response, convert_to_tensor=True)
-    agent_embedding = model.encode(agent_response, convert_to_tensor=True)
-    similarity = util.pytorch_cos_sim(user_embedding, agent_embedding).item()
-    return similarity
+    try:
+        user_embedding = model.encode(user_response, convert_to_tensor=True)
+        agent_embedding = model.encode(agent_response, convert_to_tensor=True)
+        similarity = util.pytorch_cos_sim(user_embedding, agent_embedding).item()
+        return similarity
+    except AttributeError as e:
+        st.error(f"Error in calculate_similarity_score: {e}")
+        raise
 
 def calculate_relevancy(user_answer, actual_answer):
     vectorizer = TfidfVectorizer().fit_transform([user_answer, actual_answer])
